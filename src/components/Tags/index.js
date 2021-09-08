@@ -7,7 +7,7 @@ export default function Tags(props) {
 
     function renderTags(tags) {
         return (
-            <>{tags.map(tag => <Tag text={tag.text} right={tag.right}></Tag>)}</>
+            <>{tags.map((tag, id) => <Tag text={tag.text} right={tag.right} key={id}></Tag>)}</>
         )
     }
 
