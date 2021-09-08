@@ -10,7 +10,7 @@ export default function Tag(props) {
         paddingBottom: "3px",
         paddingLeft: "7px",
         paddingRight: "7px",
-        borderRadius: "15px",
+        borderRadius: "10px",
         fontSize: "13px",
         fontWeight: "bold"
     }
