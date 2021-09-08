@@ -8,15 +8,21 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { orange } from '@material-ui/core/colors';
 import Tags from '../Tags';
+import CategoryTag from '../CategoryTag';
 import './index.scss';
 
 const useStyles = makeStyles({
   root: {
     maxWidth: 285,
     minWidth: 285,
-    borderRadius: 5,
-    margin: 10
+    borderRadius: 8,
+    margin: 10,
+    position: 'relative'
   },
+  sectionText: {
+      margin: 10,
+      color: "#2B2F34"
+  }
 });
 
 const ColorButton = withStyles((theme) => ({
@@ -43,10 +49,23 @@ const CardActionsSection = withStyles((theme) => ({
 
 export default function BaseCard(props) {
     const classes = useStyles();
-
-    const styleContentCard = {minHeight:"150px", maxHeight:"150px", overflow:"auto", textAlign: "justify"};
+    const styleContentCard = {
+        minHeight:"204px", 
+        maxHeight:"204px", 
+        overflow:"auto", 
+        textAlign: "justify",
+        fontFamily: "Open Sans",
+        fontStyle: "normal",
+        fontWeight: "normal",
+        fontSize: "14px",
+        lineHeight: "19px",
+        cursor: "default",
+        background: "linear-gradient(138.55deg, #FFFFFF 23.28%, rgba(255, 255, 255, 0.7) 97.2%)"
+    };
     return (
         <Card className={classes.root}>
+            <CategoryTag tags={props.categoryTags}/>
+            <CategoryTag author={props.author}/>
             <CardMedia
                 component="img"
                 alt={props.img && props.img.alt}
@@ -55,8 +74,8 @@ export default function BaseCard(props) {
                 title={props.img && props.img.title}
             />
             <CardContent style={styleContentCard}>
-                <Tags tags={props.tags}></Tags>
-                <Typography variant="body2" color="textSecondary" component="p">
+                <Tags tags={props.tags}/>
+                <Typography variant="body2" color="textSecondary" component="p" className={classes.sectionText}>
                     {props.text}
                 </Typography>
             </CardContent>

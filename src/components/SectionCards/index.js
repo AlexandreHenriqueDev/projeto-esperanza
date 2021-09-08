@@ -8,7 +8,7 @@ export default function SectionCards(props) {
     function renderCards(cards) {
         return (
             <>
-                {cards.map(card => <Card img={card.img} text={card.text} tags={card.tags}></Card>)}
+                {cards.map((card, id) => <Card key={id} img={card.img} text={card.text} tags={card.tags} categoryTags={card.categoryTags} author={card.author}></Card>)}
             </>
         )
     }
